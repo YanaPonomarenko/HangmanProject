@@ -1,88 +1,42 @@
-#include <string>
-#include <iostream>
+﻿#include <iostream>
+#include "HangmanGame.h"
+
 using namespace std;
 
-
-class Hangman
-{
-    
-private:
-// слово для виведення
-    string word="cat";// тестове слово
-// буква
-    char letter;
-// лічильник спроб
-    int counter;
-// виклик меню
-    int numeric;
-//кількість життя
-    int heart=3;
-
-public:
-    Hangman()=default;
-    Hangman(string word,char letter,int counter,int numeric)
-    {
-        this->word=word;
-        this->letter=letter;
-        this->counter=counter;
-        this->numeric=numeric;
-    }
-    // гетери та сетери
-    
-    void setNumeric(const int& NewNumeric){numeric=NewNumeric;}
-    
-    string getWord() const{return word;}
-    void setWord(const string& newWord){word=newWord;}
-    
-    char getLetter()const{return letter;}
-    void setLetter(const char& NewLetter){letter=NewLetter;}
-    
-    int getCounter()const{return counter;}
-    void setCounter(const int& Newcounter){counter=Newcounter;}
-    
-    // пошук схожої букви, повинно повертати зашифроване слово
-    bool check(char letter){
-        bool find=false;
-        for (int i=0;i<word.size();i++){
-            
-            if (word[i]==letter){find=true;}}
-        
-        return find;//повертає true коли знайшло
-    }
-       // меню гри . краще тут залишити, щоб був охайний main
-    int menu (int numeric)
-        {
-            if(numeric==1)
-            cout<<"***** START GAME *****"<<endl;
-        
-            else if (numeric==2)
-            cout<<"****** EXIT ******"<<endl;
-            else
-             cout<<"try again!!"<<endl;
-            
-            return numeric;
-        }
-    
-    
-    
-    
-    
-};
-// test
 int main() {
-    Hangman game;
+    setlocale(LC_ALL,"");
+    cout << "*** ТЕСТУВАННЯ ***" << endl;
 
-  
+    HangmanGame game;
+    cout << "Обєкт створено успішно" << endl;
 
-    char letter;
-    cout << "enter letter: ";
-    cin >> letter;
+    game.menu(1);
+    cout << "Меню працює" << endl;
 
-    if (game.check(letter)) {
-        cout << "діло буде " << endl;
-    } else {
-        cout << "Упс" << endl;
-    }
+    game.startNewGame("apple");
+    cout << "Гра розпочата" << endl;
+
+    cout << "Приховане слово: " << game.getHiddenWord() << endl;
+    cout << "Життя: " << game.getHeart() << endl;
+    cout << "Стан гри відображається" << endl;
+
+    cout << "\n*** ПЕРЕВІРКА ЛІТЕР ***" << endl;
+    game.processGuess('a');
+    cout << "Слово після 'a': " << game.getHiddenWord() << endl;
+
+    game.processGuess('p');
+    cout << "Слово після 'p': " << game.getHiddenWord() << endl;
+
+    game.processGuess('x');
+    cout << "Слово після 'x': " << game.getHiddenWord() << endl;
+    cout << "Залишилось життів: " << game.getHeart() << endl;
+
+    cout << "\n*** ЗАВЕРШЕННЯ ГРИ ***" << endl;
+    game.processGuess('l');
+    game.processGuess('e');
+
+    cout << "Гра завершена: " << (game.isGameOver() ? "Так" : "Ні") << endl;
+    cout << "Гра виграна: " << (game.isGameWon() ? "Так" : "Ні") << endl;
 
     return 0;
 }
