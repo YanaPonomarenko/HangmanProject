@@ -123,11 +123,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EncryptedWord.cpp" />
     <ClCompile Include="HangmanGame.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EncryptedWord.h" />
     <ClInclude Include="HangmanGame.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="words_encrypted.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,7 +20,7 @@ HangmanGame::HangmanGame()
 
 HangmanGame::HangmanGame(string word, char letter, int counter, int numeric)
     : word(word), letter(letter), counter(counter), numeric(numeric),
-    heart(3), hiddenWord(""), incorrectAttempts(0), gameWon(false), gameOver(false)
+    heart(5), hiddenWord(""), incorrectAttempts(0), gameWon(false), gameOver(false)
 {
 }
 
@@ -108,7 +108,7 @@ void HangmanGame::startNewGame(const string& newWord) {
     //скидаємо лічильники
     counter = 0;
     incorrectAttempts = 0;
-    heart = 3;
+    heart = 5;
     gameWon = false;
     gameOver = false;
 
