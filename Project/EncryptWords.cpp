@@ -1,4 +1,4 @@
-﻿/*#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 #include <string>
 
@@ -17,15 +17,14 @@ string encryptWord(const string& originalWord) {
 
 int main() {
     setlocale(LC_ALL, "");
-    cout << "=== Утиліта для шифрування ===" << endl;
+    cout << "*** Утиліта для шифрування ***" << endl;
 
-    // Відкриваємо файл зі словами
+    // відкриваємо файл зі словами
     ifstream inFile("words.txt");
     ofstream outFile("words_encrypted.txt");
 
     if (!inFile.is_open()) {
-        cerr << "ПОМИЛКА: Файл words.txt не знайдено!" << endl;
-        cerr << "Створіть файл words.txt зі словами для гри" << endl;
+        cerr << "Помилка файл words.txt не знайдено" << endl;
         return 1;
     }
 
@@ -47,8 +46,8 @@ int main() {
     inFile.close();
     outFile.close();
 
-    cout << "Успішно зашифровано " << wordCount << " СЛІВ!" << endl;
+    cout << "Успішно зашифровано " << wordCount << " слів" << endl;
     cout << "Створено файл: words_encrypted.txt" << endl;
 
     return 0;
-}*/
+}

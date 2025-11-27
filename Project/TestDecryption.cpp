@@ -17,18 +17,17 @@ string decryptWord(const string& encryptedWord) {
 
 int main() {
     setlocale(LC_ALL, "");
-    cout << "=== Тест дешифрування ===" << endl;
+    cout << "*** Тест дешифрування ***" << endl;
 
     ifstream file("words_encrypted.txt");
     if (!file.is_open()) {
-        cout << "Не вдалося відкрити words_encrypted.txt" << endl;
+        cout << "Не вдалось відкрити words_encrypted.txt" << endl;
         return 1;
     }
 
     string encryptedWord;
     cout << "Зашифроване -> Розшифроване" << endl;
-    cout << "---------------------------" << endl;
-
+ 
     while (getline(file, encryptedWord)) {
         if (!encryptedWord.empty()) {
             string decrypted = decryptWord(encryptedWord);

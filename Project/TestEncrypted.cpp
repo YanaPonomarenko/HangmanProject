@@ -1,16 +1,16 @@
-﻿#include <iostream>
+﻿/*#include <iostream>
 #include "EncryptedWord.h"
 
 using namespace std;
 
 void testEncryptedWord() {
     setlocale(LC_ALL, "");
-    cout << "=== Тестування ENCRYPTEDWORD ===" << endl;
+    cout << "*** Тестування EncryptedWord ***" << endl;
 
     EncryptedWord encryptedWord;
 
     if (encryptedWord.loadWord("words_encrypted.txt")) { 
-        cout << "Зашифровані слова завантажено успішно!" << endl;
+        cout << "Зашифровані слова завантажено успішно" << endl;
 
         cout << "\nВипадкові слова:" << endl;
         for (int i = 0; i < 5; i++) {
@@ -25,4 +25,4 @@ void testEncryptedWord() {
 int main() {
     testEncryptedWord();
     return 0;
-}
+}*/

@@ -20,7 +20,7 @@ string EncryptedWord::decryptWord(const string& encryptedWord) {
 bool EncryptedWord::loadWord(const string& filename) {
     ifstream file(filename);
     if (!file.is_open()) {
-        cout << "Помилка: не вдалося відкрити файл " << filename << endl;
+        cout << "Помилка не вдалося відкрити файл " << filename << endl;
         return false;
     }
 
@@ -34,7 +34,7 @@ bool EncryptedWord::loadWord(const string& filename) {
     file.close();
 
     if (words.empty()) {
-        cout << "Попередження: файл не містить слів!" << endl;
+        cout << "попередження файл не містить слів!" << endl;
         return false;
     }
 
