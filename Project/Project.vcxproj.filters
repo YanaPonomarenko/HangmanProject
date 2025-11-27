@@ -13,17 +13,26 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{885d5cd9-bb89-4f65-8887-b4060551d515}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="EncryptedWord.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hangman.cpp">
+    <ClCompile Include="EncryptWords.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestEncrypted.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDecryption.cpp">
+      <Filter>Tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Hangman.h">
+    <ClInclude Include="EncryptedWord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
