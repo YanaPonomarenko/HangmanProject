@@ -200,12 +200,5 @@ bool HangmanGame::processGuess(char letter) {
     bool gameLost = (heart <= 0);
     gameOver = gameWon || gameLost;
 
-    if (gameWon) {
-        cout << "ВІТАЮ! ВИ ВГАДАЛИ СЛОВО: " << word << endl;
-    }
-    else if (gameLost) {
-        cout << "ГРА ЗАВЕРШЕНА! Слово було: " << word << endl;
-    }
-
     return letterFound;
 }
