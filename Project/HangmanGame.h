@@ -17,7 +17,7 @@ private:
     //для розширення додаткові поля
     string hiddenWord;    //слово з підкресленнями для відображення
     vector<char> usedLetters; // всі літери, які вже використовувались
-    int incorrectAttempts;     // лічильник невдалих спроб
+    int incorrect;     // лічильник невдалих спроб
     bool gameWon;              // чи виграв гравець
     bool gameOver;             // чи гра завершена
 
@@ -39,14 +39,14 @@ public:
 
 //нові методи для розширення
     void startNewGame(const string& newWord); //початок нової гри
-    void updateHiddenWord(char letter); // оновлення відображення слова
+    void updateWord(char letter); // оновлення відображення слова
     bool processGuess(char letter);     // обробка спроби гравця
 
     //нові геттери
-    string getHiddenWord() const { return hiddenWord; }
+    string gethWord() const { return hiddenWord; }
     vector<char> getUsedLetters() const { return usedLetters; }
     int getHeart() const { return heart; }
-    int getIncorrectAttempts() const { return incorrectAttempts; }
+    int getIncorrect() const { return incorrect; }
     bool isGameWon() const { return gameWon; }
     bool isGameOver() const { return gameOver; }
     //вивід часу

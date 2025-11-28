@@ -15,14 +15,14 @@ char toLower(char c) {
 
 HangmanGame::HangmanGame()
     : word(""), letter(' '), counter(0), numeric(0), heart(3),
-    hiddenWord(""), incorrectAttempts(0), gameWon(false), gameOver(false)
+    hiddenWord(""), incorrect(0), gameWon(false), gameOver(false)
 {
     // word залишається порожнім ,буде встановлено через startNewGame()
 }
 
 HangmanGame::HangmanGame(string word, char letter, int counter, int numeric)
     : word(word), letter(letter), counter(counter), numeric(numeric),
-    heart(5), hiddenWord(""), incorrectAttempts(0), gameWon(false), gameOver(false)
+    heart(5), hiddenWord(""), incorrect(0), gameWon(false), gameOver(false)
 {
 }
 
@@ -111,7 +111,7 @@ void HangmanGame::startNewGame(const string& newWord) {
 
     //скидаємо лічильники
     counter = 0;
-    incorrectAttempts = 0;
+    incorrect = 0;
     heart = 6;
     gameWon = false;
     gameOver = false;
@@ -119,7 +119,7 @@ void HangmanGame::startNewGame(const string& newWord) {
     cout << "Гра розпочата! Слово має " << word.length() << " літер." << endl;
 }
 
-void HangmanGame::updateHiddenWord(char letter) {
+void HangmanGame::updateWord(char letter) {
     // перевіряємо чи слово не порожнє
     if (word.empty()) {
         return;
@@ -185,13 +185,13 @@ bool HangmanGame::processGuess(char letter) {
 
     if (letterFound) {
         cout << "Вітаю! Літера '" << letter << "' є в слові!" << endl;
-        updateHiddenWord(letter);
+        updateWord(letter);
         animation();//анімація
     }
     else {
         cout << "На жаль, літери '" << letter << "' немає в слові." << endl;
         heart--;
-        incorrectAttempts++;
+        incorrect++;
         animation();
     }
 
@@ -220,7 +220,7 @@ void HangmanGame::show()const
 {
     cout<<"Статистика: "<<endl;
     cout<<"Загадене слово: "<<word<<endl;
-    cout<<"Кількість спроб: "<<incorrectAttempts<<endl;
+    cout<<"Кількість спроб: "<<incorrect<<endl;
     cout<<"Літери гравця: "<<endl;
     cout<<"--------------"<<endl;
     for (char c : usedLetters){
@@ -246,18 +246,11 @@ void HangmanGame::gameInfo()
 
         processGuess(guess);
 
-        if (isGameWon()) {
-            cout << "\nВітаємо!"<< endl;
-            break;
-        }
-        else if (isGameOver()) {
-            cout << "\nГру завершено! "<<endl;
-            break;
-        }
+       
     }
 }
 void HangmanGame::animation(){
-    if(incorrectAttempts==0)
+    if(incorrect==0)
     {
         cout<<"     _____________"<<endl;
         cout<<"    |             |"<<endl;
@@ -277,7 +270,7 @@ void HangmanGame::animation(){
         cout<<" /     \\"<<endl;
     }
 
-     else if (incorrectAttempts==1)
+     else if (incorrect==1)
     {
         cout<<"     _____________"<<endl;
         cout<<"    |             |"<<endl;
@@ -297,7 +290,7 @@ void HangmanGame::animation(){
         cout<<"  /   \\"<<endl;
         cout<<" /     \\"<<endl;
     }
-    else if (incorrectAttempts==2)
+    else if (incorrect==2)
     {
         cout<<"     _____________"<<endl;
         cout<<"    |             |"<<endl;
@@ -316,7 +309,7 @@ void HangmanGame::animation(){
         cout<<"  /   \\"<<endl;
         cout<<" /     \\"<<endl;
     }
-    else if (incorrectAttempts==3)
+    else if (incorrect==3)
     {
         cout<<"     _____________"<<endl;
         cout<<"    |             |"<<endl;
@@ -335,7 +328,7 @@ void HangmanGame::animation(){
         cout<<"  /   \\"<<endl;
         cout<<" /     \\"<<endl;
     }
-    else if (incorrectAttempts==4)
+    else if (incorrect==4)
     {
         cout<<"     _____________"<<endl;
         cout<<"    |             |"<<endl;
@@ -354,7 +347,7 @@ void HangmanGame::animation(){
         cout<<"  /   \\"<<endl;
         cout<<" /     \\"<<endl;
     }
-    else if (incorrectAttempts==5)
+    else if (incorrect==5)
     {
         cout<<"     _____________"<<endl;
         cout<<"    |             |"<<endl;
@@ -373,7 +366,7 @@ void HangmanGame::animation(){
         cout<<"  /   \\"<<endl;
         cout<<" /     \\"<<endl;
     }
-    else if (incorrectAttempts==6)
+    else if (incorrect==6)
     {
         cout<<"     _____________"<<endl;
         cout<<"    |             |"<<endl;
